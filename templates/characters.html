@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="content-page">
+
+<h1>👤 Characters</h1>
+
+<pre>{{content}}</pre>
+
+<div class="controls">
+<button class="generate-btn"
+onclick="generateCharacterImages()">
+🎨 Generate Character Images
+</button>
+
+<p id="loading" class="loading-text">
+Generating cinematic visuals...
+</p>
+</div>
+
+<!-- Responsive Gallery -->
+<div id="imageGallery" class="image-gallery"></div>
+
+</div>
+
+<script>
+function generateCharacterImages(){
+
+document.getElementById("loading").style.display="block"
+document.getElementById("imageGallery").innerHTML=""
+
+fetch("/generate_character_images",{method:"POST"})
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("loading").style.display="none"
+
+if(data.images && data.images.length>0){
+
+data.images.forEach(img=>{
+
+document.getElementById("imageGallery").innerHTML += `
+<div class="img-card">
+<img src="/${img}">
+<a href="/${img}" download class="download-btn">
+⬇ Download
+</a>
+</div>
+`
+
+})
+
+}else{
+alert("No images generated")
+}
+
+})
+
+}
+</script>
+
+</body>
+</html>

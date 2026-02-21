@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+    <h2>Cinema AI</h2>
+
+    <nav>
+        <a href="/dashboard">🏠 Dashboard</a>
+        <a href="/screenplay">🎬 Screenplay</a>
+        <a href="/characters">👤 Characters</a>
+        <a href="/sound">🎵 Sound</a>
+    </nav>
+</aside>
+
+<main class="main">
+<div class="card">
+
+<h1>Welcome, {{username}}!</h1>
+<h3>Create Your Story</h3>
+
+<textarea id="story"
+placeholder="Describe your cinematic idea..."></textarea>
+
+<button id="generateBtn" onclick="generate()">
+Generate AI Content
+</button>
+
+<div id="loading" class="loading">
+<div class="spinner"></div>
+<p>Generating cinematic magic...</p>
+</div>
+
+<div id="errorMsg"></div>
+
+</div>
+</main>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
