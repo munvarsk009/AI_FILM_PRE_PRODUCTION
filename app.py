@@ -293,11 +293,6 @@ app.secret_key = "cinema_secret"
 OLLAMA_API = "http://localhost:11434/api/generate" #local Ollama server API endpoint
 MODEL = "granite4:micro"
 
-#image genartion parameters - stability AI's API is currently more reliable and faster than Hugging Face's, so we will use it for testing. Please replace the key with your own if you want to test further, as this is from a free trial account and may stop working after a certain number of requests or time period.
-
-STABILITY_API_KEY = "sk-5UbnGZD812NxUkhTZw0PGbPzVkrPNoMQZadfBiXW7TdFUoZj" #replace with your own key
-STABILITY_URL = "https://api.stability.ai/v2beta/stable-image/generate/sd3"
-
 #25 free credits - one time character generation will generate 3 images - left credits will be 5.5 
 #image generation function
 def generate_character_image(prompt):
